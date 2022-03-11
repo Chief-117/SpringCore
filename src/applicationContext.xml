@@ -37,6 +37,9 @@
 		<property name="email" value="${foo.email}"/>
 		<property name="team" value="SunSet"/>
 	</bean>
+	<bean id="myFootballCoach" class="com.example.springdemo.FootballCoach">
+		<constructor-arg ref="myFortuneService"/>
+	</bean>
 	<!-- property name 對應setter 如fortuneServiceX 則對應setFortuneServiceX -->
 	<!-- set up setter injection -->
 	

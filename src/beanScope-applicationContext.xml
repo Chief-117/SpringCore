@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- to check the process log -->
+	<bean id="myLoggerConfig"
+		class="com.example.springdemo.MyLoggerConfig" init-method="initLogger">
+		<property name="rootLoggerLevel" value="FINE" />
+		<property name="printedLoggerLevel" value="FINE" />
+	</bean>
+	<!-- Define your beans here -->
+	<bean id="myCoach" class="com.example.springdemo.TrackCoach" scope="prototype">
+		<constructor-arg ref="myFortuneService" />
+		
+	</bean>
+	<!-- 設置constuctor injection -->
+
+	<bean id="myFortuneService"
+		class="com.example.springdemo.HappyFortuneService" >
+	</bean>
+	<bean id="myBaseballCoach" class="com.example.springdemo.BaseballCoach" scope="prototype">
+		<constructor-arg ref="myFortuneService" />
+	</bean>
+		<bean id="myFootballCoach"
+		class="com.example.springdemo.FootballCoach" scope="prototype">
+		<constructor-arg ref="myFortuneService" />
+	</bean>
+	<!-- myPractice -->
+	<!-- define dependency -->
+
+
+</beans>
+
+
+
+
+
