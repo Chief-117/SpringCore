@@ -8,6 +8,7 @@ public class BaseballCoach implements Coach{
 	public BaseballCoach(FortuneService theFortuneService) {
 		fortuneService=theFortuneService;
 	}
+	//
 	@Override
 	public String getDaily() {
 		return "花30分鐘練習打擊";
